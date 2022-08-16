@@ -1,0 +1,31 @@
+# Project: calculadora_OO
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../Projeto_Calculadora_OO/Calculadora_OO.o ../Projeto_Calculadora_OO/main.o
+LINKOBJ  = ../Projeto_Calculadora_OO/Calculadora_OO.o ../Projeto_Calculadora_OO/main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = calculadora_OO.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../Projeto_Calculadora_OO/Calculadora_OO.o: ../Projeto_Calculadora_OO/Calculadora_OO.cpp
+	$(CPP) -c ../Projeto_Calculadora_OO/Calculadora_OO.cpp -o ../Projeto_Calculadora_OO/Calculadora_OO.o $(CXXFLAGS)
+
+../Projeto_Calculadora_OO/main.o: ../Projeto_Calculadora_OO/main.cpp
+	$(CPP) -c ../Projeto_Calculadora_OO/main.cpp -o ../Projeto_Calculadora_OO/main.o $(CXXFLAGS)
