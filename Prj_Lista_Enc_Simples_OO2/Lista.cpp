@@ -55,6 +55,8 @@ void Lista::libera(){
 	 	p = t; /* faz p apontar para o próximo */
 	 }
 	 this->cabeca = 0; //inicializa lista vazia
+	 
+	 printf("Lista liberada!\n");
 }
 
 void Lista::tamanho(){
@@ -69,12 +71,19 @@ bool Lista::isEmpty(no_dado* l){
 void Lista::busca(int i){
 	if (!this->isEmpty(this->cabeca)){ //Se não estiver vazia
 		no_dado* p; //variável auxiliar para percorrer a lista
-		for (p = this->cabeca; p != NULL; p = p->prox)
+		bool achou = false;
+		for (p = this->cabeca; p != NULL; p = p->prox){
 			if(p->info == i){
+				achou = true;
+			}
+		}
+		
+		if(achou == true){
 				printf("Elemento encontrado!\n");
 			}else{
 				printf("Elemento não encontrado...\n");
 			}
+			
 	} else printf("Lista está vazia!\n");
 }
 
